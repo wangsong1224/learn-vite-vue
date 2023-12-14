@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 元数据只存在于head标签中,用来定义如何显示内容或重新加载页面,搜索引擎(关键词)和其他web服务 
+    所谓元信息，是指描述自身的信息，元信息类标签，就是 HTML 用于描述文档自身的一类标签，
+    它们通常出现在 head 标签中，一般都不会在页面被显示出来（与此相对，其它标签，如语义类标签，描述的是业务）。
+    元信息多数情况下是给浏览器、搜索引擎等机器阅读的，有时候这些信息会在页面之外显示给用户，有时候则不会。
+
+  -->
+  <!-- meta里的数据是供机器解读的,告诉机器该如何解析这个页面 
+    一般的 meta 标签由 name 和 content 两个属性来定义。
+    name 表示元信息的名，content 则用于表示元信息的值。
+  -->
+
+  <!-- 字符集,一定要写在第一行,否则会乱码 -->
+  <meta charset="UTF-8">
+
+  <!-- 具有 http-equiv 属性的 meta 标签，表示执行一个命令，这样的 meta 标签可以不需要 name 属性了。 -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <!-- 告诉浏览器,用webkit内核进行解析 -->
+  <meta name="renderer" content="webkit">
+
+  <!-- 页面标题<title>标签(head 头部必须) -->
+  <title>your title</title>
+
+  <!-- 页面关键词 keywords -->
+  <meta name="keywords" content="your keywords">
+
+  <!-- 页面描述内容 description -->
+  <meta name="description" content="your description">
+
+  <!-- 定义网页作者 author -->
+  <meta name="author" content="author,email address">
+
+  <!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，
+    通常有如下几种取值：none，noindex，nofollow，all，index和follow。 -->
+  <meta name="robots" content="index,follow">
+
+  <!-- 百度会自动对网页转码,这个标签是禁止百度的自动转码 -->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <!-- 影响移动端页面布局的 
+    width 1或1vw或device-width(设备宽)
+    height 1或1vh或device-height(设备高)
+    initial-scale 控制页面首次加载时的缩放倍数 0.1-10 默认1.0
+    user-scalable 是否允许页面上的放大,缩小操作 默认1,可选0/no
+    interactive-widget: 指定交互式 UI 组件（如虚拟键盘）对页面视口的影响。
+                        resizes-visual:可视视口 (en-US)会被交互式组件调整大小。
+                        resizes-content:视口会被交互式组件调整大小。
+                        overlays-content:视口和可视视口 (en-US)都不会被交互式组件调整大小。                  
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- 5秒后跳转到指定页面 -->
+  <meta http-equiv="Refresh" content="5;url=http://blog.yangchen123h.cn" />
+
+  <!-- 以下是移动端常用meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+  <meta name="format-detection" content="telphone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit">
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">
+  <!-- 微软的老式浏览器 -->
+  <meta name="MobileOptimized" content="320">
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">
+  <!-- UC应用模式 -->
+  <meta name="browsermode" content="application">
+  <!-- QQ应用模式 -->
+  <meta name="x5-page-mode" content="app">
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <!-- 适应移动端end -->
+</head>
+
+<body>
+  <!-- 标题标签 h1--h6 -->
+  <h1></h1>
+
+  <!-- main元素,定义页面的主要内容,一个页面只能用一次 -->
+  <main>主要内容</main>
+
+  <!-- hgroup元素代表“网页”或“section”的标题，当元素有多个层级时，
+    该元素可以将h1到h6元素放在其内，譬如文章的主标题和副标题的组合 -->
+  <hgroup>
+    <h1>这是一篇介绍HTML 5语义化标签和更简洁的结构</h1>
+    <h2>HTML 5</h2>
+  </hgroup>
+  <!-- nav表示导航链接区域 用于定义页面的主要导航部分 -->
+  <nav></nav>
+
+  <!-- aside 主要内容的附属信息,比如侧边栏 -->
+  <article>
+    <p>内容</p>
+    <aside>
+      <h1>作者简介</h1>
+      <p>小北，前端一枚</p>
+    </aside>
+  </article>
+
+  <!-- section元素代表文档中的“节”或“段”，“段”可以是指一篇文章里按照主题的分段；
+    “节”可以是指一个页面里的分组。 -->
+  <section>
+    <h1>section是啥？</h1>
+    <article>
+      <h2>关于section</h1>
+        <p>section的介绍</p>
+        <section>
+          <h3>关于其他</h3>
+          <p>关于其他section的介绍</p>
+        </section>
+    </article>
+  </section>
+
+  <!-- article元素最容易跟section和div容易混淆，其实article代表一个在文档，
+    页面或者网站中自成一体的内容，其目的是为了让开发者独立开发或重用。
+    譬如论坛的帖子，博客上的文章，一篇用户的评论，一个互动的widget小工具 -->
+  <article>
+    <h1>一篇文章</h1>
+    <p>文章内容..</p>
+    <footer>
+      <p><small>版权：html5jscss网所属，作者：小北</small></p>
+    </footer>
+  </article>
+
+
+
+  <!-- footer元素代表“网页”或“section”的页脚，通常含有该节的一些基本信息，
+    譬如：作者，相关文档链接，版权资料。 -->
+  <footer>@王松</footer>
+
+  <!--  -->
+  <a href="javascript:void(0)">单击此处什么也不会发生</a>
+  <img src="" alt="替换标签" title="这是个图片">
+
+  <!-- picture 元素可以根据屏幕的条件为其中的 img 元素提供不同的源，它的基本用法如下： -->
+  <picture>
+    <source srcset="image-wide.png" media="(min-width: 600px)">
+    <img src="image-narrow.png">
+  </picture>
+
+  <!-- 使用 srcdoc 属性创建了一个新的文档，嵌入在 iframe 中展示，并且使用了 sandbox 来隔离。
+  这样，这个 iframe 就不涉及任何跨域问题了。 -->
+  <iframe sandbox srcdoc="<p>Yeah, you can see it <a href=" /gallery?mode=cover&amp;amp;page=1">in my
+    gallery</a>."></iframe>
+
+  <!-- 
+    常见的块级元素
+    div p ul/li h1-h6 table 
+    br 换行符 
+    blockquote 块级引用元素 代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进
+    address 
+    menu
+    pre
+    header
+    section
+    aside
+    footer
+   -->
+  <!-- video标签 -->
+
+
+  <form>
+    <!-- 给表单内相关标签分组 -->
+    <fieldset>
+      <!-- 设置fieldset元素组的标题 -->
+      <legend>health information</legend>
+      height: <input type="text" />
+      weight: <input type="text" />
+      <!-- 无序列表 此列项目使用粗体圆点（通常）进行标记。-->
+      <!-- 去掉标记 list-style-type: none; -->
+      <ul></ul>
+      <!-- 有序列表 列表项目使用数字进行标记。-->
+      <ol></ol>
+      <!-- 定义列表 在对项目有描述的时候使用-->
+      <dl>
+        <dt>鱼</dt>
+        <dd>各种鱼类，除了刺多的鲤鱼</dd>
+        <dt>虾</dt>
+        <dd>基围虾，龙虾之类的海虾</dd>
+        <dt>蟹</dt>
+        <dd>当然是阳澄湖大闸蟹好吃啦</dd>
+      </dl>
+    </fieldset>
+  </form>
+  <script>
+    // 常见知识点大全
+    /**
+     * 1.盒模型 盒模型类型,切换方式,计算不同盒模型下盒子宽高
+     * 2.浮动,清除浮动 margin塌陷问题
+     * 3.定位
+     * 4.css选择器 优先级顺序
+     * 5.伪类和伪元素
+     * 6.HTML中语义化标签
+     * 7.客户端存储方案
+     * 8.websoket
+     * 9.常见布局
+     * 盒子页面居中(上下,左右) BFC布局 三栏自适应布局
+     * flex布局原理和实现 grid布局 移动端布局(rem,流失布局,自适应,响应式)
+     * table布局
+     * 10.
+     *
+     *
+    */
+    //  盒模型
+  </script>
+  <script>
+    /**
+     * 
+     * 1.所有引用类型都有 __proto__ ,属性值是个普通对象
+     * 2.所有的函数,都有一个prototype属性,属性值也是一个普通对象
+     * 3.所有引用类型,__proto__ 属性指向它构造函数的prototype值
+     * 通过原型对象一级一级网上找的过程就是原型链
+     * console.log(obj.__proto__ === Object.prototype)
+     * 
+     * 如果在f.__proto__中没有找到toString，那么就继续去f.__proto__.__proto__中寻找
+     * ，因为f.__proto__就是一个普通的对象而已嘛！
+     * f.__proto__即Foo.prototype，没有找到toString，继续往上找
+     * f.__proto__.__proto__即Foo.prototype.__proto__。
+     * Foo.prototype就是一个普通的对象，因此Foo.prototype.__proto__就是Object.prototype，
+     * 在这里可以找到toString
+     * 因此f.toString最终对应到了Object.prototype.toString
+     * 
+     * JavaScript 中所有的对象都有一个内置属性，称为它的prototype（原型）。 
+     * 它本身是一个对象，故原型对象也会有它自己的原型，逐渐构成了原型链。
+     * 
+     * 原型链:当访问一个对象的属性时，会在这个对象的属性上去找，如果没有找到就会去这个对象的--proto-- 上去找，
+     * 即构造函数prototype 上找，如果没有会一直在--proto-- 上找，直到最顶层，不到即为undefined 。
+     * 这样一层一层地向上，就彷佛一条链子串起来，所以就叫原型链。
+     * 
+     * 作用域链:变量取值会到创建这个变量的函数的作用域中取值，如果找不到，就会向上级作用域去查，
+     * 直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。
+     * 区别就是
+     * 作用域链是相对于变量而言， 原型是相对于属性而言
+     * 作用域最顶层是window ，原型链最顶层是Object
+     * 
+     * 
+     * 
+    */
+    Father1.prototype.gender = "男";
+    let son = new Father1();
+    console.log(son);
+    console.log(son.gender);
+    console.log(son.__proto__ === Father1.prototype);
+    console.log(Father1.constructor);
+    console.log(son.constructor);
+
+    /**
+     * 
+    */
+    function add(a, b) {
+      return a + b
+    }
+    // call apply 传参方式不同 call接收多个参数 apply接收数组
+    // 这俩个都是立即执行
+    console.log(add.call(add, 2, 3))
+    console.log(add.apply(add, [2, 3]))
+    // bind传参跟call一样,只是bind不会立即调用,他会生成一个函数,在想调用的时候调用
+    const add1 = add.bind(add, 2, 3)
+
+    // 闭包 引用了另一个函数作用域中变量的函数
+    // 函数的嵌套调用
+    function F1() {
+      var a = 100
+      return function () {
+        console.log(a)
+      }
+    }
+    function F2(f1) {
+      var a = 200
+      console.log(f1())
+    }
+    var f1 = F1()
+    F2(f1);
+
+    // 解构赋值
+    // 默认值
+    const [foo = true] = [false]
+    // 重命名,前面相同
+    let { foo: baz } = { foo: 'foo' }
+    console.log(baz) // foo
+    // 构造函数函数体的内容要放在 class 中的constructor函数中，constructor即构造器，初始化实例时默认执行
+    // 使用extends即可实现继承，更加符合经典面向对象语言的写法，如 Java
+    //子类的constructor一定要执行super()，以调用父类的constructor
+
+
+  </script>
+</body>
+
+</html>

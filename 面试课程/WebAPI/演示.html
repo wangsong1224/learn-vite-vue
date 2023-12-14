@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM演示</title>
+  <style>
+    body {
+      margin: 30px;
+    }
+
+    .container {
+      border: 1px solid #ccc;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .ul1 {
+      border: 10px double purple;
+    }
+
+    .dd {
+      margin-top: 20px;
+      border: 4px solid pink;
+    }
+
+    .dd1 {
+      border: 2px solid green;
+    }
+
+    .dd1>p {
+      border: 1px solid blue;
+    }
+
+    .dd1 {
+      border: 2px solid skyblue;
+    }
+
+    .dd2>p {
+      border: 1px solid blue;
+    }
+
+    .dd5>div {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div1" class="container">
+    <p>一段文字 1
+      <span>span</span>
+    </p>
+    <p>一段文字 2</p>
+    <p>一段文字 3</p>
+  </div>
+  <div id="div2">
+    <img src="https://static001.geekbang.org/resource/image/25/a7/25053af5ae30c8be991fa14631cde0a7.png?wh=1142*634"
+      width="100" height="100" title="这是调用栈" />
+  </div>
+  <ul class="ul1"></ul>
+
+  <h1>演示事件冒泡</h1>
+  <div class="dd">
+    <div class="dd1">
+      <p class="pp1">激活</p>
+      <p class="pp1">取消</p>
+      <p class="pp1">取消</p>
+    </div>
+    <div class="dd2">
+      <p class="pp1">取消</p>
+      <p class="pp1">取消</p>
+      <p class="pp1">取消</p>
+    </div>
+  </div>
+
+  <h1>演示事件代理</h1>
+  <div class="dd fa">
+    <div class="dd5">
+      <div>
+        <a href="https://www.baidu.com/">链接1</a>
+      </div>
+      <div>
+        <a href="https://www.baidu.com/">链接2</a>
+      </div>
+      <div>
+        <a href="https://www.baidu.com/">链接3</a>
+      </div>
+    </div>
+    <button class="btn">加载更多...</button>
+  </div>
+  <!-- <script src="./DOM介绍.js"></script> -->
+  <!-- <script src="./DOM性能.js"></script> -->
+  <!-- <script src="./BOM介绍.js"></script> -->
+  <!-- <script src="./事件绑定和事件冒泡.js"></script> -->
+  <script src="./Web存储.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-size: 20px;
+      line-height: 200%;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    span {
+      width: 300px;
+      height: 100px;
+      padding: 10px;
+      margin: 10px;
+      font-size: 12px;
+      line-height: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 面试题:p元素的行高是多少 
+    行高继承规则
+    1.父元素行高是具体数值,比如20px  子元素直接继承20px
+    2.父元素行高是倍数,比如1.5      子元素继承1.5这个倍数,再计算 16*1.5=24px
+    3.父元素行高是百分比,比如200%   子元素继承的是父元素字体大小*百分比之后的数值,也就是40px
+  -->
+  <p>
+    字体行高
+    <!-- 行内元素
+      设置宽高无效, margin,padding上下无效 左右有效
+      可设置行高,试试,不会生效,我以为是24px 但是最终居然是16.5
+      可以搞成display:inline-block 马上24px就生效了
+     -->
+    <span>孙子元素行高</span>
+  </p>
+</body>
+
+</html>

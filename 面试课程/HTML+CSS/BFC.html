@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      background-color: gray;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .bgc {
+      /* overflow: hidden; */
+    }
+
+    .ab {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 面试题:如何理解BFC,他有什么应用
+    BFC是块级格式化上下文
+    它是一块独立的渲染区域,内部元素的布局不会影响到边界以外的元素
+
+    触发方式
+    1.float 设置不是none
+    2.position设置 absolute或fixed
+    3.overflow不是visible
+    4.display:inline-block
+
+    场景应用:
+    1.清除浮动,可以用overflow:hidden
+    2.父子元素margin塌陷问题
+   -->
+
+  <div class="container bgc ab">
+    <!-- 在不清除浮动的情况下可以看下,浮动因为脱离了文档流,会对排版造成影响 
+      文档流:指节点在排版布局时,默认使用从[左到右从上到下的流式排列方式]
+    -->
+    <img src="https://www.imooc.com/static/img/index/logo.png" class="left" alt="">
+    <!-- 这里可以看下,加不加bfc不一样的
+    不加的话,元素还是撑满了父元素 
+    加上的话,p就只占据了图片之外的区域了
+  -->
+    <p class="bgc ab">这是一段文字...</p>
+  </div>
+</body>
+
+</html>

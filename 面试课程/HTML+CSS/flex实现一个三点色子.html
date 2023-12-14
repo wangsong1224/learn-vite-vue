@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      /* 项目太大无法一行显示,会换行 */
+      /* flex-wrap: wrap; */
+    }
+
+    .box1 {
+      display: flex;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .item1 {
+      display: block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid red;
+      border-radius: 50%;
+      order: -1;
+    }
+
+    .item1:nth-child(2) {
+      /* 自适应 */
+      flex: 1;
+      order: 0;
+    }
+
+    .item1:nth-child(3) {
+      width: 60px;
+      order: -1;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .item {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #666;
+    }
+
+    .item:nth-child(2) {
+      align-self: center
+    }
+
+    .item:nth-child(3) {
+      align-self: flex-end
+    }
+
+    /*
+      https://zhuanlan.zhihu.com/p/25303493
+      flex item上的属性
+      1. align-self:允许单个项目有与其他项目不一样的对齐方式(也是重点)
+      2. order:定义项目在容器中的排列顺序,数值越小越靠前
+     */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+
+  <div class="box1">
+    <span class="item1">1</span>
+    <span class="item1">2</span>
+    <span class="item1">3</span>
+  </div>
+</body>
+
+</html>

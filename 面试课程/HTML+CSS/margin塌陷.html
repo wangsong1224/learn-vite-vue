@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margin重叠问题</title>
+  <style>
+    /* margin纵向重叠 */
+    p {
+      font-size: 16px;
+      line-height: 1;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* margin负值测试 ========*/
+    .float-left {
+      float: left;
+    }
+
+    /* 清除浮动 */
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .container {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .container .item {
+      width: 100px;
+      height: 100px;
+    }
+
+    .border-blue {
+      border: 1px solid blue;
+    }
+
+    .border-red {
+      border: 1px solid red;
+    }
+
+    /* margin负值测试 ========*/
+
+
+    /* 看,这就是Margin塌陷
+      son明明设置了margin-top,但是却和父组件重叠了
+      margin-top没有生效,竖直方向的margin合并了
+      解决方案:
+      1.父组件设置border
+      2.父组件设置overflow ,这会触发BFC(块级格式化上下文)
+     */
+    .father {
+      margin-top: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      /* border: 1px solid green; */
+      /* overflow: hidden; */
+
+      .son {
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        margin-top: 50px;
+        /* 只是纵向,横向不受影响 */
+        margin-left: 50px;
+      }
+    }
+
+    .element {
+      border: 1px solid red;
+
+    }
+
+    .element>h1 {
+      /* 哪怕设置了宽度,还是会独占一行 */
+      width: 200px;
+      width: 100%;
+      text-align: center;
+      height: 50px;
+      /* 行高影响的是文字的位置,文字居中则line-height===height */
+      /* display: flex;
+      align-items: center; */
+      line-height: 50px;
+      vertical-align: middle;
+    }
+
+    .element>h1>span {
+      margin-left: 4px;
+      font-size: 18px;
+    }
+
+    .element>span {}
+  </style>
+</head>
+
+<body>
+  <!-- 面试题:行内元素和块级元素的区别
+    块级元素独占一行,行内元素不会独占一行,会依次向后排列
+   -->
+  <div class="element">
+    <h1>
+      标题
+      <span>标题1</span>
+      <span>标题2</span>
+      <span>标题3</span>
+    </h1>
+    <span>内容1</span>
+    <span>内容2</span>
+    <span>内容3</span>
+  </div>
+  <!-- 面试题:请问AAA和BBB的间距是多少
+    考察的是Margin纵向重叠的问题
+    1.[相邻元素]的margin-bottom和margin-top会发生重叠
+    2.空白内容的<p></p>也会重叠
+
+    也就是忽略了中间的空白p标签,以大的为准 所以是15px
+  -->
+  <p>AAA</p>
+  <!-- 非空元素就不能被忽略了 -->
+  <!-- <p>1</p> -->
+  <p></p>
+  <p></p>
+  <p>BBB</p>
+
+
+  <!-- 面试题:什么是margin塌陷
+    答:父元素没有设置border的情况下,子元素纵向margin-top不生效
+    纵向和父元素贴在一起
+   -->
+  <h1>测试Margin塌陷</h1>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+
+  <!-- 面试题:margin设置负数,出现什么效果
+    margin-left:元素自身向左移动
+    margin-top:元素自身向上移动
+    margin-right:自身不受影响,右侧元素向左移动
+    margin-bottom:自身不受影响,下方元素向上移动
+   -->
+  <h1>用于测试margin top bottom负数情况</h1>
+  <div class="container">
+    <div class="item border-blue">
+      this is item 1
+    </div>
+    <div class="item border-red">
+      this is item 2
+    </div>
+  </div>
+
+  <h1>用于测试margin left right负数情况</h1>
+  <!-- 在父元素上面清楚浮动 -->
+  <div class="container clearfix">
+    <div class="item border-blue float-left">
+      this is item 3
+    </div>
+    <div class="item border-red float-left">
+      this is item 4
+    </div>
+  </div>
+</body>
+
+</html>

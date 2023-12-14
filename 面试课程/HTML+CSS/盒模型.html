@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .no1 {
+      height: 30px;
+    }
+
+    .father {
+      margin-top: 20px;
+      margin-left: 30px;
+      padding: 20px;
+    }
+
+    p[attr='p'] {
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid red;
+      /* 怪异盒模型 */
+      box-sizing: border-box;
+    }
+
+    .ddd {
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid red;
+      /* 正常盒模型 
+        width=content 的width
+        offsetWidth=content+padding+border
+      */
+      box-sizing: content-box;
+    }
+
+    .scroll {
+      height: 200px;
+      /* padding: 30px; */
+      border: 1px solid red;
+      overflow: scroll;
+    }
+
+    .scroll-item {
+      height: 1000px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h1>盒模型</h1> -->
+  <div class="no1"></div>
+  <div class="father">
+    <p class="" attr="p"></p>
+    <div class="ddd" attr="div"></div>
+  </div>
+  <!-- 滚动 -->
+  <div class="scroll">
+    <div class="scroll-item"></div>
+  </div>
+  <script>
+    /**
+     * 面试题:请问<div class="ddd" attr="div"></div> 这个元素的
+     * offsetWidth是多少?
+     * 
+     * 具体看下面知识点
+     * offsetWidth表示的是元素具体占的空间,包含border  clientWidth不包含border
+     * 首先,这是个正常盒模型 offsetWidth=content+padding+border
+     * 也就是 100+10*2+1*2=122
+     * 如果是怪异盒,因为怪异盒的宽度就包含了content+padding+border,
+     * 所以offsetWidth=width,可以参考<p class="" attr="p"></p>
+    */
+    /**
+     * querySelector 只返回匹配的第一个元素
+     * querySelectorAll 返回匹配的所有元素
+    */
+    var dom = document.querySelector('p')
+    var domD = document.querySelector('.ddd')
+    console.log(dom.offsetWidth)
+    console.log(dom.offsetHeight)
+    console.log(dom.offsetTop)
+    console.log(dom.offsetLeft)
+
+    console.log(domD.offsetWidth)
+    console.log(domD.offsetHeight)
+    console.log(domD.offsetTop)
+    console.log(domD.offsetLeft)
+
+    var scroll = document.querySelector('.scroll')
+    scroll.addEventListener('scroll', function (e) {
+      console.log(scroll.scrollHeight)
+      console.log(scroll.scrollTop)
+      var size = window.getComputedStyle(scroll)
+      console.log(size.height)
+      // console.log(scroll.scrollTop + size.height === scroll.scrollHeight)
+    }, false)
+    /**
+     * client,offset,scroll三个相关的属性
+     * 
+     * 1.可视区域大小-client相关
+     * 指元素[内容及其内边距]所占空间大小
+     * clientWidth=content宽+左右padding
+     * clientHeight=content高+上下padding
+     * clientTop:上边框宽度
+     * clientLeft:左边框宽度
+     * 
+     * 2.偏移量-offset相关
+     * offsetWidth=clientWidth+左右border
+     * offsetHeight=clientHeight+上下border
+     * offsetTop=
+     * offsetLeft=
+     * 
+     * 3.滚动大小-scroll相关
+     * scrollHeight:当前元素真实内容高度,包括隐藏的部分
+     * scrollTop:表示滚动元素的高度(也就是滚上去了的高度)
+    */
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      position: relative;
+      border: 1px solid red;
+      height: 300px;
+    }
+
+    .d1 {
+      position: absolute;
+      /* top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto; */
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid green;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 面试题
+    relative和absolute依据什么定位
+    relative:依据自身定位
+    absolute:依据最近的祖先定位元素,比如relative,absolute,fixed 
+            如果都没有定位元素,就依据body定位
+   -->
+  <!-- 居中对齐方式
+  优先使用flex
+  
+  水平居中:
+  {
+    inline元素:text-align:center
+    block元素:margin:0 auto;
+    absolute元素: {
+      left:50% margin-left:-50%
+      或者:left 50%  transform:translateX(-50%)
+    }
+  }
+  垂直居中:{
+    inline元素: line-height=height
+    absolute元素{
+      top:50% margin-top:-50%
+      或者 top:50% transform:translateY(-50%)
+      或者 top,left,bottom,right都是0 + margin:auto
+    }
+  }
+  -->
+  <div class="container">
+    <div class="d1"></div>
+  </div>
+</body>
+
+</html>

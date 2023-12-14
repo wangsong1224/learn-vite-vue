@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式</title>
+  <style>
+    html {
+      font-size: 14px;
+    }
+
+    div {
+      font-size: 0.16rem;
+      width: 1rem;
+    }
+
+    p {
+      width: 10em;
+      width: 10rem;
+      /* em子元素没有设置font-size以父元素为准,设置了以自身为准 */
+      /* font-size: 16px; */
+    }
+
+    @media only screen and (max-width:374px) {
+
+      /* iphone 5或者更小尺寸,以iPhone5的宽度(320px)比例设置font-size */
+      html {
+        font-size: 86px;
+      }
+    }
+
+    @media only screen and (min-width:375px) and (max-width:413px) {
+
+      /* iphone6/7/8 和iPhone x */
+      html {
+        font-size: 100px;
+      }
+    }
+
+    @media only screen and (min-width:414px) {
+
+      /* iphone 6P或者更大尺寸*/
+      html {
+        font-size: 110px;
+      }
+    }
+
+
+
+    .vw {
+      /* 可以打开控制台调整尺寸,是响应式的 */
+      border: 1px solid green;
+      width: 10vw;
+      height: 10vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+    面试题
+    1.rem是什么
+    em子元素没有设置font-size以父元素为准,设置了以自身为准
+    rem是相对于根元素字体大小决定的长度单位.
+
+    2.响应式布局的常用方案
+    响应式布局:根据不同的设备尺寸有不同的布局
+    {
+      1.media-query媒体查询,根据不同尺寸的屏幕给html设置不同的font-size值
+      然后各种尺寸都使用rem为单位
+      rem弊端:{
+        1.rem是阶梯性的,不够精细,因为不可能每一个屏幕尺寸都设置一个媒体查询
+      }
+
+      2.vw,vh  相对于网页视口宽高的1%
+      1vw 就是1%的window.innerWidth
+      1vh 就是1%的window.innerHeight
+      网页视口尺寸
+      window.screen.height        屏幕高度
+      window.innerHeight          网页视口高度(网页可视区域的高度)
+      document.body.clientHeight  body高度
+
+      3.flex布局
+    }
+   -->
+  <div>
+    div
+    <p>em</p>
+  </div>
+
+  <div>演示vw,vh</div>
+  <div class="vw"></div>
+</body>
+
+</html>
