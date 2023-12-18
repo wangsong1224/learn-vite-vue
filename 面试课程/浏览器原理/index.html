@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面加载过程</title>
+  <!-- 为什么CSS要放到head中?
+
+   -->
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .fa {
+      height: 300px;
+      border: 4px dashed green;
+    }
+
+    .div {
+      width: 100px;
+      margin-left: 50%;
+      /* 这里会创建新的图层 */
+      will-change: transform;
+      transform: translate(-50%);
+      background-color: red;
+    }
+
+    .relative {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      margin-top: 30px;
+      height: 300px;
+      border: 4px dashed green;
+      background-color: red;
+      z-index: 10000;
+      /* 滚动确实会创建新的图层 */
+      overflow: scroll;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: 1000px;
+      background-color: khaki;
+    }
+
+    .drag {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+  <script defer src="./防抖与节流.js"></script>
+</head>
+
+<body>
+  <script src="./script.js"></script>
+  <div class="debounce">
+    <h1>防抖</h1>
+    <input class="input" type="text" placeholder="请输入">
+  </div>
+  <div class="debounce">
+    <h1>节流</h1>
+    <div class="drag" draggable="true">可拖拽</div>
+  </div>
+  <p class="pp">p</p>
+  <p class="pp">p1</p>
+  <p class="pp">p2</p>
+  <div class="fa">
+    <div class="div">div</div>
+  </div>
+  <div class="relative">
+    <div class="absolute">absolute</div>
+  </div>
+  <script>
+    // DOM构建完成后触发,此时图片,视频等可能还没有完成
+    // script defer是在这个之前执行的
+    window.addEventListener('DOMContentLoaded', function () {
+      // alert('DOMContentLoaded')
+      console.log('DOMContentLoaded')
+    })
+    // 页面加载完成后触发,包括图片视频等
+    window.addEventListener('load', (function () {
+      console.log('onload')
+    }))
+  </script>
+</body>
+
+</html>

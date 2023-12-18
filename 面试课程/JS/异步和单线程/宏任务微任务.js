@@ -57,3 +57,22 @@ setTimeout(function () {
   let dom = document.querySelector('#div1')
   console.log(dom)
 })
+
+/**
+ * 微任务套微任务
+ */
+console.log("start");
+new Promise((resolve, reject) => {
+  resolve(1);
+  // 这个微任务先进入微任务队列
+  new Promise((resolve, reject) => {
+    resolve(2);
+  }).then((res) => {
+    console.log(res);
+  });
+}).then((res) => {
+  console.log(res);
+});
+
+console.log("end");
+// start end 2 1
